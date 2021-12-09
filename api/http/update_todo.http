@@ -1,0 +1,7 @@
+PUT http://localhost:4000/api/update-todo
+Content-Type: application/json
+
+{
+  "id" : 4,
+  "todo" : "cook"
+}
