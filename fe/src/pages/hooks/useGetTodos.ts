@@ -3,12 +3,18 @@ import { useEffect, useState } from 'react';
 import { API_URL } from '../../constants';
 
 export function useGetTodos() {
-  const [todos, setTodos] = useState<ApiRes>(null);
+  const [todos, setTodos] = useState<ApiRes>({
+    data: [],
+    code: null,
+    status: null,
+  });
 
   useEffect(() => {
     getTodos()
       .then((res) => {
-        setTodos(res);
+        if (res.data !== null) {
+          setTodos(res);
+        }
       })
       .catch((err) => {
         console.log(err);

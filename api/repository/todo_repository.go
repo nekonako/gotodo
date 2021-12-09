@@ -47,7 +47,7 @@ func (t *todoRepository) GetAll() []entity.Todo {
 	ctx, cancel := config.NewDbContext()
 	defer cancel()
 
-	query := "SELECT * FROM todos"
+	query := "SELECT * FROM todos ORDER BY id DESC"
 	rows, err := t.DB.QueryContext(ctx, query)
 	exception.PanicIfErr(err)
 
